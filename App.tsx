@@ -31,7 +31,6 @@ const App: React.FC = () => {
   const [obsTemp, setObsTemp] = useState<string>('');
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [isCalculated, setIsCalculated] = useState(false);
 
   // Browser State
   const [selectedPageIdx, setSelectedPageIdx] = useState(0);
@@ -44,7 +43,6 @@ const App: React.FC = () => {
   const handleCalculate = () => {
     setError(null);
     setResult(null);
-    setIsCalculated(false);
 
     const d = parseFloat(obsDensity);
     const t = parseFloat(obsTemp);
@@ -70,7 +68,6 @@ const App: React.FC = () => {
 
     if (calculatedValue !== null && calculatedValue > 0) {
       setResult(calculatedValue);
-      setIsCalculated(true);
     } else {
       setError("Calculation error. Data point likely out of valid correlation range.");
     }
@@ -80,7 +77,6 @@ const App: React.FC = () => {
     setObsDensity('');
     setObsTemp('');
     setResult(null);
-    setIsCalculated(false);
     setError(null);
   };
 
